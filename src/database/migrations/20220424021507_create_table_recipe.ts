@@ -4,12 +4,12 @@ import { Knex } from "knex";
 export async function up(knex: Knex): Promise<void> {
     return knex.schema.createTable('Recipe', (table) => {
         table.increments('id')
-        table.timestamp('date_recipe').defaultTo(knex.fn.now())
+        table.date('date_recipe')
 
         // relationship
-        table.string('patient_cpf', 14)
-            .references('Patient.cpf')
-            .notNullable()
+        table.integer('patient_id').unsigned()
+        table.foreign('patient_id')
+            .references('Patient.id')
             .onUpdate('CASCADE')
             .onDelete('CASCADE')
     });
