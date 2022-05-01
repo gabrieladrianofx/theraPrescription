@@ -17,6 +17,9 @@ routes.put('/patient/:cpf', async (req, res) => {
     const controller = new PatientControllers();
     return controller.update(req, res)
 });
-// routes.delete('/patient', PatientControllers.delete);
+routes.delete('/patient/:cpf', async (req, res) => {
+    const controller = new PatientControllers()
+    return controller.delete(req, res)
+});
 
 export default routes;
