@@ -17,16 +17,16 @@ class PatientValidator {
       
     rules() {
         return {
-            cpf: 'required|string',
+            cpf: 'required|string|size:14',
             name: 'required|string',
-            //birthDay: 'date',
-            sex: 'string',
+            sex: 'required|string|max:1',
             email: 'required|email',
-            phone: 'string',
+            phone: 'required|string:size:14',
+            birthDay: 'date',
             address: 'string',
             district: 'string',
             city: 'string',
-            state: 'string',
+            state: 'string|size:2',
             zip_code: 'string'
         }
     }
